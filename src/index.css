@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Cores da marca */
+  --color-background: #fff;
+  /* branco */
+  --color-foreground: #333333;
+  /* cinza escuro para textos */
+  --color-primary: #ff3c8f;
+  /* rosa forte */
+  --color-primary-foreground: #fff;
+  /* texto branco nos botões rosa */
+  --color-secondary: #fff;
+  /* branco para botões secundários */
+  --color-secondary-foreground: #ff3c8f;
+  /* rosa nos textos de botões secundários */
+  --color-border: #ff3c8f;
+  /* rosa para bordas e destaque */
+  --color-card: #fff;
+  /* fundo dos cards */
+  --color-card-foreground: #333;
+  /* textos dos cards */
+}
+
+.dark {
+  --color-background: #1a1a1a;
+  --color-foreground: #fff;
+  --color-primary: #ff3c8f;
+  --color-primary-foreground: #fff;
+  --color-secondary: #2a2a2a;
+  --color-secondary-foreground: #ff3c8f;
+  --color-border: #ff3c8f;
+  --color-card: #2a2a2a;
+  --color-card-foreground: #fff;
+}
+
+
+@layer components {
+
+  /* Botão primário - rosa da marca */
+  .btn-primary {
+    @apply bg-[var(--color-primary)] text-[var(--color-primary-foreground)] rounded-lg px-4 py-2 font-semibold hover:bg-pink-600 transition;
+  }
+
+  /* Botão secundário - branco com contorno rosa */
+  .btn-secondary {
+    @apply bg-[var(--color-secondary)] text-[var(--color-secondary-foreground)] border border-[var(--color-border)] rounded-lg px-4 py-2 font-semibold hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-foreground)] transition;
+  }
+
+  /* Card de produto */
+  .card {
+    @apply bg-[var(--color-card)] text-[var(--color-card-foreground)] rounded-lg shadow-md overflow-hidden transition hover:shadow-lg;
+  }
+
+  /* Títulos rosa */
+  .title-primary {
+    @apply text-[var(--color-primary)] font-bold;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-background)] text-[var(--color-foreground)] font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  p,
+  a {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  * {
+    @apply border-[var(--color-border)] outline-none;
+  }
+}
